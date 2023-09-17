@@ -1,0 +1,52 @@
+name: build-deploy-action
+run-name: Building ${{ github.repository }}. Job ${{ github.job }} started by ${{ github.actor }}
+
+on:
+  push:
+    branches:
+      - main
+      - development
+  pull_request:
+    types: [opened, synchronize, reopened]
+  workflow_dispatch:
+
+jobs: 
+  scan-vuln-job:
+    name: Scanning for vulnerabilities and misconfigurations
+    runs-on: [self-hosted, Linux, X64]
+    steps:
+      - run: echo "Job (${{ github.job }}) was automatically triggered by event ${{ github.event_name }}."
+      - run: echo "${{ github.repository }}#${{ github.ref }} has been checked out to a GitHub runner on ${{ runner.os }} server"
+
+      - name: Checking out repository code
+        uses: actions/checkout@v3
+      
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '18.17'
+          
+      - name: Installing library dependencies
+        run: bash ./scripts/install.sh
+
+      - name: Auditing 3rd-party packages
+        run: yarn run audit
+
+      - name: Run Trivy filesystem vulnerability scanner in repo mode
+        uses: aquasecurity/trivy-action@master
+        with:
+          scan-type: 'fs'
+          scan-ref: '.'
+          exit-code: 1
+          ignore-unfixed: true
+          severity: CRITICAL,HIGH
+          hide-progress: false
+          scanners: 'vuln,config,secret'
+          vuln-type: 'os,library'
+          format: sarif
+          output: 'trivy-fs-results.sarif'
+      
+      - name: Upload Trivy filesystem vulnerability assessment report to GitHub Security tab
+        uses: github/codeql-action/upload-sarif@v2
+        if: always()
+        with:
+          sarif_file: 'trivy-fs-results.sarif'
