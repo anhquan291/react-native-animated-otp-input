@@ -31,6 +31,7 @@ const OtpItem = ({ i }: { i: number }) => {
     inputStyle,
     textStyle,
     otpCount,
+    editable,
     enteringAnimated,
     exitingAnimated,
     rest,
@@ -74,7 +75,7 @@ const OtpItem = ({ i }: { i: number }) => {
         autoFocus={autoFocus && i === 0}
         {...rest}
       />
-      <Pressable onPress={onPress} style={styles.overlay}>
+      <Pressable disabled={!editable} onPress={onPress} style={styles.overlay}>
         <Animated.View
           style={[
             {
@@ -108,6 +109,7 @@ export const OtpInput = ({
   textStyle = {},
   focusColor = '#4497ce',
   autoFocus = false,
+  editable = true,
   enteringAnimated = FadeInDown,
   exitingAnimated = FadeOut,
   onCodeFilled,
@@ -174,6 +176,7 @@ export const OtpInput = ({
     textStyle,
     focusColor,
     otpCount,
+    editable,
     enteringAnimated,
     exitingAnimated,
     rest,

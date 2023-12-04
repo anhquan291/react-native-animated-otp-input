@@ -27,6 +27,10 @@ export interface IOtpInput extends TextInputProps {
    */
   autoFocus?: boolean;
   /**
+   * Set editable for inputs
+   */
+  editable?: boolean;
+  /**
    * Callback function
    * Trigger when all text input fields are fulfill
    */

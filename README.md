@@ -49,7 +49,7 @@ const OTPInput = () => {
 }
 ```
 
-## Parameters
+## Params
 
 | Parameter               | required | Description                                                                                     |
 | ----------------------- | -------- | ----------------------------------------------------------------------------------------------- |
@@ -60,6 +60,7 @@ const OTPInput = () => {
 | autoFocus               | NO       | Auto activate the input and bring up the keyboard when component is loaded                      |
 | onCodeChanged           | NO       | Callback when the digits are changed                                                            |
 | onCodeFilled            | NO       | Callback when the last digit is entered                                                         |
+| editable                | NO       | Set editable for inputs                                                                         |
 | rest                    | NO       | The other text input props                                                                      |
 | enteringAnimated        | NO       | The entering animation using reanimated layout                                                  |
 | exitingAnimated         | NO       | The exiting animation using reanimated layout                                                   |
