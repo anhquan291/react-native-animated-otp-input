@@ -62,7 +62,7 @@ const OTPInput = () => {
 | onCodeFilled            | NO       | Callback when the last digit is entered                                                         |
 | rest                    | NO       | The other text input props                                                                      |
 | enteringAnimated        | NO       | The entering animation using reanimated layout                                                  |
-| exitingAnimated         | NO       | The xxiting animation using reanimated layout                                                   |
+| exitingAnimated         | NO       | The exiting animation using reanimated layout                                                   |
 | rest                    | NO       | The other text input props                                                                      |
 
 

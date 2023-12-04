@@ -50,14 +50,12 @@ const OtpItem = ({ i }: { i: number }) => {
 
   useEffect(() => {
     if (otpValue) {
-      if ((otpValue[i]?.length ?? 0) > 1 && (otpValue[i]?.length ?? 0) === otpCount) {
-        const numbers = otpValue[i]?.split('') ?? [];
+      if ((otpValue[i]?.length ?? 0) > 1) {
+        const format = otpValue[i]?.substring(0, otpCount);
+        const numbers = format?.split('') ?? [];
         setOtpValue(numbers);
         setFocus(-1);
         Keyboard.dismiss();
-      } else if ((otpValue[i]?.length ?? 0) > otpCount) {
-        setOtpValue([]);
-        setFocus(0);
       }
     }
   }, [otpValue]);
@@ -182,7 +180,7 @@ export const OtpInput = ({
   };
 
   useEffect(() => {
-    onCodeChanged(Number(otpValue.join('')));
+    onCodeChanged && onCodeChanged(Number(otpValue.join('')));
     if (otpValue && Number(otpValue.join('').length === otpCount) && onCodeFilled) {
       onCodeFilled(Number(otpValue.join('')));
     }

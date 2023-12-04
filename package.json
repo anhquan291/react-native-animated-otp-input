@@ -1,6 +1,6 @@
 {
   "name": "react-native-animated-otp-input",
-  "version": "0.1.2",
+  "version": "0.1.4",
   "description": "@anhquan291/react-native-animated-otp-input is a tiny library which provides an elegant UI with smooth Animation for the end user to input one time passcode (OTP). It also handles the input suggestion on iOS when the OTP SMS is received.",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",

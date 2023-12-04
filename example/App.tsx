@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
+import { Alert, StyleSheet, View } from 'react-native';
 import OtpInput from 'react-native-animated-otp-input';
 
 export default function App() {
@@ -8,6 +8,9 @@ export default function App() {
       <OtpInput
         otpCount={5}
         autoFocus={false}
+        onCodeFilled={(code: number) => {
+          Alert.alert('Notification', `OTP is ${code}`);
+        }}
         onCodeChanged={(codes: number) => {
           console.log({ codes });
         }}
