@@ -2,9 +2,9 @@
 
 **@anhquan291/react-native-animated-otp-input** is a tiny library which provides an elegant UI with smooth Animation for the end user to input one time passcode (OTP). It also handles the input suggestion on iOS when the OTP SMS is received.
 
-## Contributing
-If you’d like to contribute, I encourage you to fork this repository and improve it for the community.
-
+| iOS | Android |
+| ------ | ---------- |
+| <video src="https://github.com/anhquan291/react-native-animated-otp-input/assets/17813202/8b1ac8d1-5ba5-416c-b842-611ff07e21f5.mov" />  |  <video src="https://github.com/anhquan291/react-native-animated-otp-input/17813202/175cbb28-b707-4b54-9b68-8d41022e1910.mp4" />|
 
 ## Installation
 
@@ -72,6 +72,8 @@ const OTPInput = () => {
 - [ ] Add unit tests
 - [ ] Add auto fill otp on Android
 
+## Contributing
+If you’d like to contribute, I encourage you to fork this repository and improve it for the community.
 
 ## License
 
