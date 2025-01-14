@@ -183,9 +183,9 @@ export const OtpInput = ({
   };
 
   useEffect(() => {
-    onCodeChanged && onCodeChanged(Number(otpValue.join('')));
+    onCodeChanged && onCodeChanged(otpValue.join(''));
     if (otpValue && Number(otpValue.join('').length === otpCount) && onCodeFilled) {
-      onCodeFilled(Number(otpValue.join('')));
+      onCodeFilled(otpValue.join(''));
     }
   }, [otpValue]);
 
