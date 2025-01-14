@@ -34,12 +34,12 @@ export interface IOtpInput extends TextInputProps {
    * Callback function
    * Trigger when all text input fields are fulfill
    */
-  onCodeFilled?: (code: number) => void;
+  onCodeFilled?: (code: string) => void;
   /**
    * Callback function
    * Trigger when a field of the OTP is changed
    */
-  onCodeChanged?: (codes: number) => void;
+  onCodeChanged?: (codes: string) => void;
   /**
    * Entering animation using reanimated layout
    */
