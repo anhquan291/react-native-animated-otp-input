@@ -8,10 +8,10 @@ export default function App() {
       <OtpInput
         otpCount={5}
         autoFocus={false}
-        onCodeFilled={(code: number) => {
+        onCodeFilled={(code: string) => {
           Alert.alert('Notification', `OTP is ${code}`);
         }}
-        onCodeChanged={(codes: number) => {
+        onCodeChanged={(codes: string) => {
           console.log({ codes });
         }}
       />
